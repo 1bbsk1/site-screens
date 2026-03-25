@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Smoke Fixture</title>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background:
+          radial-gradient(circle at top left, #ffd27f, transparent 35%),
+          linear-gradient(135deg, #0b1020, #19324f 55%, #f6f8fc);
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      #card {
+        width: 820px;
+        padding: 48px;
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: 0 30px 100px rgba(11, 16, 32, 0.28);
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: 52px;
+      }
+
+      p {
+        margin: 0;
+        font-size: 22px;
+        line-height: 1.45;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="card">
+      <div id="ready"></div>
+      <h1>site-screens</h1>
+      <p>Smoke fixture used to verify screenshot generation without external network access.</p>
+    </section>
+  </body>
+</html>

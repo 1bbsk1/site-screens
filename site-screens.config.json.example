@@ -1,0 +1,22 @@
+{
+  "defaults": {
+    "preset": "desktop",
+    "format": "png",
+    "fullPage": false,
+    "scroll": true,
+    "blockCookieBanners": true
+  },
+  "sites": {
+    "x.com": {
+      "preset": "tweet",
+      "waitFor": "main",
+      "storageState": ".auth/x_com.json",
+      "hide": [
+        "[data-testid='BottomBar']"
+      ]
+    },
+    "*.notion.site": {
+      "waitFor": "main"
+    }
+  }
+}
