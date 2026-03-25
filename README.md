@@ -88,8 +88,7 @@ Example:
     "x.com": {
       "preset": "tweet",
       "waitFor": "main",
-      "storageState": ".auth/x_com.json",
-      "hide": ["[data-testid='BottomBar']"]
+      "storageState": ".auth/x_com.json"
     }
   }
 }
@@ -111,4 +110,5 @@ Precedence is: CLI flags > matching site rule > config defaults.
 - Prefer `--wait-for` over arbitrary delays.
 - The built-in cookie-banner removal is best-effort only.
 - X/Twitter captures remove the logged-out `BottomBar` prompt by default.
+- For X/Twitter post capture, `article[data-testid='tweet']` is usually the right selector.
 - This repo includes a local smoke test so the core flow can be verified without internet access.

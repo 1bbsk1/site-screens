@@ -11,6 +11,8 @@ This repo is a small Playwright screenshot CLI. Keep it focused on:
 
 Do not expand it into a crawler, scraper platform, or browser testing framework unless the user explicitly asks for that.
 
+Historical note: the initial repo commit tracked `node_modules/`. That was intentionally removed. Large old git diffs are expected if a session inspects early history.
+
 ## Fast orientation
 
 Read only these files first:
@@ -32,6 +34,19 @@ Avoid reading `package-lock.json` unless dependency work is involved.
 - `src/utils.js`: small helpers
 - `scripts/smoke-test.js`: local verification
 - `fixtures/smoke.html`: no-network test fixture
+
+## Runtime files
+
+These are local runtime artifacts, not source:
+
+- `screens/`
+- `tmp-smoke/`
+- `tmp-manual/`
+- `.auth/`
+- `.playwright/`
+- `browser_profile/`
+
+Do not commit them unless the user explicitly asks for that.
 
 ## Commands
 
@@ -60,6 +75,7 @@ Common manual runs:
 
 ```bash
 node src/cli.js shot https://example.com --preset tweet
+node src/cli.js shot https://x.com/i/status/... --preset tweet --selector "article[data-testid='tweet']" --wait-for "article[data-testid='tweet']"
 node src/cli.js batch urls.txt --preset desktop
 node src/cli.js auth https://x.com --storage-state .auth/x_com.json
 ```
@@ -71,6 +87,8 @@ node src/cli.js auth https://x.com --storage-state .auth/x_com.json
 - Prefer CLI flags and shallow JSON config over adding more code paths.
 - Prefer `--wait-for` and selector-based capture over fixed delays.
 - X/Twitter captures already strip the `BottomBar` login prompt in code; preserve that behavior unless the user asks otherwise.
+- For X/Twitter post capture, default to `article[data-testid='tweet']` instead of full-page shots.
+- Long X article posts can produce extremely tall screenshots; prefer segmented capture if the user needs shareable assets.
 - Do not commit `browser_profile/`, `.auth/`, `screens/`, or other runtime output.
 - If changing CLI behavior, update both `README.md` and this file in the same pass.
 - Use the smoke test before claiming the tool works.
